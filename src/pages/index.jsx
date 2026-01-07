@@ -22,7 +22,6 @@ const EQUIPAMENTOS_MOTIVOS = {
   'Serrafita': ['Substituição de rolamento', 'Queima de motor', 'Troca de correia','Manutenção na Guia', 'Outro'],
   'Virador de toras LE': ['Manutenção no virador de toras', 'Manutenção na corrente do virador de toras', 'Outro'],
   'Virador de toras LD': ['Manutenção no virador de toras', 'Manutenção na corrente do virador de toras', 'Outro'],
-  'TESTE': ['TESTE 1', 'TESTE 2', 'Outro'],
 };
 
 const META_DIARIA = 30;
