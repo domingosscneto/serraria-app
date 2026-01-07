@@ -4,24 +4,23 @@ import { Calendar, Plus, BarChart3, ChevronLeft, ChevronRight, X, Trash2, AlertT
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 
-const CLIENTES = ['AÇODEC', 'AÇOS PRIMAVERA', 'AÇOTUBO', 'AMR PINTER', 'ARTEX', 'ATIVA', 'BELLA UNION', 'BOX STEEL', 'BRASMETAL', 'CBBA', 'COPERFIL', 'CORT LINE', 'CSA', 'DORBINOX', 'ELINOX', 'EXTRUTECH', 'FATIMA FERRA E AÇO', 'FER ALVAREZ I', 'FER ALVAREZ II', 'FERCOI', 'FERROLENE SP', 'FERROLENE MG', 'FORMILINE', 'INCONEL', 'KOFAR', 'KORT GERAL', 'LAPEFER', 'LHR', 'MAPEFER', 'MEBRAS', 'MG CENTRO DE SERVIÇOS', 'MIL AÇOS', 'MULTIAÇO', 'NACIONAL TUBOS', 'NEO LIDER', 'NEW PORT STEEL', 'NOVA FATIMA', 'PAULIFER', 'PERFILADOS NARDI', 'PERTECH', 'RETINOX', 'SENASERV', 'SOLUAÇO', 'STAMPSTEEL', 'TRADE STEEL', 'TUBOS ABC', 'URIFER', 'USINA', 'WALCORTE'];
+const CLIENTES = ['AÇODEC', 'AÇOS PRIMAVERA', 'AÇOTUBO', 'AMR PINTER', 'ARTEX', 'ATIVA', 'BELLA UNION', 'BOX STEEL', 'BRASMETAL', 'CBBA', 'COPERFIL', 'CORT LINE', 'CSA', 'DORBINOX', 'ELINOX', 'EXTRUTECH', 'FATIMA FERRA E AÇO', 'FER ALVAREZ I', 'FER ALVAREZ II', 'FERCOI', 'FERROLENE SP', 'FERROLENE MG', 'FORMILINE', 'INCONEL', 'KOFAR', 'KORT AÇO', 'KORT GERAL', 'KORT METAL', 'KORT TOTAL', 'LAPEFER', 'LHR', 'MAPEFER', 'MEBRAS', 'MG CENTRO DE SERVIÇOS', 'MIL AÇOS', 'MULTIAÇO', 'MULTIAÇO ITU', 'NACIONAL TUBOS', 'NEO LIDER', 'NEW PORT STEEL', 'NOVA FATIMA', 'PAULIFER', 'PERFILADOS NARDI', 'PERTECH', 'RETINOX', 'SENASERV', 'SOLUAÇO', 'STAMPSTEEL', 'TRADE STEEL', 'TUBOS ABC', 'URIFER', 'USINA', 'WALCORTE'];
 
-const LINHAS_PRODUCAO = ['Serra fita Setenta', 'Serra fita Jardim', 'Bloqueadeira', 'Aproveitamento'];
+const LINHAS_PRODUCAO = ['Serra Fita Setenta', 'Serra Fita Jardim', 'Bloqueadeira', 'Aproveitamento'];
 
 const EQUIPAMENTOS_MOTIVOS = {
-  'Esteira': ['Esteira de entrada rompida', 'Substituição do motor da esteira', 'Outro'],
-  'Mão de obra': ['Falta de mão de obra', 'Outro'],
-  'Guincho': ['Manutenção no freio do guincho', 'Manutenção na base do guincho', 'Substituição da mangueira hidráulica de guincho', 'Outro'],
-  'Virador de toras LE': ['Manutenção no virador de toras', 'Manutenção na corrente do virador de toras', 'Outro'],
-  'Virador de toras LD': ['Manutenção no virador de toras', 'Manutenção na corrente do virador de toras', 'Outro'],
   'Bitolador': ['Substituição do botão do bitolador', 'Substituição do relé do bitolador', 'Manutenção no fio elétrico do bitolador', 'Outro'],
+  'Cava': ['Substituição da arruela', 'Outro'],
+  'Destopadeira': ['Substituição do motor', 'Substituição da flange', 'Manutenção correia do motor', 'Manutenção no grampo de aperto do trilho', 'Outro'],
+  'Esteira': ['Esteira de entrada rompida', 'Substituição do motor da esteira', 'Outro'],
   'Grampeador de toras': ['Substituição da mangueira de ar comprimido do grampeador de toras', 'Outro'],
-  'Energia Elétrica': ['Falta de energia Elétrica', 'Outro'],
+  'Guincho': ['Manutenção no freio do guincho', 'Manutenção na base do guincho', 'Substituição da mangueira hidráulica de guincho', 'Outro'],
+  'Linha Completa': ['Falta de Energia Elétrica', 'Falta de Mão de Obra', 'Outro'],
   'Painel elétrico': ['Manutenção no painel elétrico', 'Outro'],
   'Picador': ['Esteira de entrada 01 rompida', 'Esteira de entrada 02 rompida', 'Esteira de saída 01 rompida', 'Esteira de saída 02 rompida', 'Substituição do mancal do rolo de entrada', 'Outro'],
-  'Cava': ['Substituição da arruela', 'Outro'],
   'Refiladeira': ['Substituição do rolamento', 'Substituição do eixo', 'Manutenção do disjuntor geral do painel', 'Outro'],
-  'Destopadeira': ['Substituição do motor', 'Substituição da flange', 'Manutenção correia do motor', 'Manutenção no grampo de aperto do trilho', 'Outro']
+  'Virador de toras LE': ['Manutenção no virador de toras', 'Manutenção na corrente do virador de toras', 'Outro'],
+  'Virador de toras LD': ['Manutenção no virador de toras', 'Manutenção na corrente do virador de toras', 'Outro'],
 };
 
 const META_DIARIA = 30;
