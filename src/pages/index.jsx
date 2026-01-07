@@ -19,9 +19,10 @@ const EQUIPAMENTOS_MOTIVOS = {
   'Painel elétrico': ['Manutenção no painel elétrico', 'Outro'],
   'Picador': ['Esteira de entrada 01 rompida', 'Esteira de entrada 02 rompida', 'Esteira de saída 01 rompida', 'Esteira de saída 02 rompida', 'Substituição do mancal do rolo de entrada', 'Outro'],
   'Refiladeira': ['Substituição do rolamento', 'Substituição do eixo', 'Manutenção do disjuntor geral do painel', 'Outro'],
-  'Serrafita': ['Substituição de Rolamento', 'Queima de motor', 'Troca de Correia','Manutenção na Guia'],
+  'Serrafita': ['Substituição de rolamento', 'Queima de motor', 'Troca de correia','Manutenção na Guia', 'Outro'],
   'Virador de toras LE': ['Manutenção no virador de toras', 'Manutenção na corrente do virador de toras', 'Outro'],
   'Virador de toras LD': ['Manutenção no virador de toras', 'Manutenção na corrente do virador de toras', 'Outro'],
+  'TESTE': ['TESTE 1', 'TESTE 2', 'Outro'],
 };
 
 const META_DIARIA = 30;
